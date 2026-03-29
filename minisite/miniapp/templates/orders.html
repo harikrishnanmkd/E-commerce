@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/orders.css' %}">
+
+<div class="orders-container">
+    <h2>My Orders</h2>
+
+    {% for o in orders %}
+    <div class="order-card">
+
+        <div class="order-left">
+            <img src="{{ o.product.image.url }}" alt="product">
+        </div>
+
+        <div class="order-details">
+            <h3>{{ o.product.name }}</h3>
+            <p>Quantity: {{ o.quantity }}</p>
+
+            <!-- ✅ Proper date format -->
+            <p class="date">
+                Ordered on: {{ o.ordered_at|date:"d M Y" }}
+            </p>
+        </div>
+
+        <div class="order-status">
+            <span class="status ordered">ordered</span>
+        </div>
+
+    </div>
+    {% empty %}
+    <p>No orders yet</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

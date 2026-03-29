@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+
+<h2>All Vivo Phones</h2>
+
+<div class="grid">
+{% for p in items %}
+    <div class="card">
+
+        <!-- ✅ Click image → go to detail page -->
+        <a href="{% url 'product_detail' p.id %}">
+            <img src="{{ p.image.url }}">
+        </a>
+
+        <h3>{{ p.name }}</h3>
+        <p>₹{{ p.price }}</p>
+
+    <div class="actions">
+    <a class="view-btn" href="{% url 'product_detail' p.id %}">View Details</a>
+    <a class="cart-btn" href="{% url 'add_to_cart' p.id %}">Add to Cart</a>
+    </div>
+
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

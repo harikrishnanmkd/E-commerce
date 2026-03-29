@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+
+<div class="product-container">
+
+    <div class="image">
+        <img src="{{ product.image.url }}">
+    </div>
+
+    <div class="details">
+        <h2>{{ product.name }}</h2>
+        <h3>₹{{ product.price }}</h3>
+
+        <p>{{ product.description }}</p>
+
+        <a class="btn" href="{% url 'add_to_cart' product.id %}">
+            Add to Cart
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

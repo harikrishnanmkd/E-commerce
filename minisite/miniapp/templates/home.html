@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<!-- ✅ CAROUSEL -->
+<div class="carousel">
+    <div class="slides">
+        <img src="{% static 'images/vivo.png' %}">
+        <img src="{% static 'images/v70.jpg' %}">
+        <img src="{% static 'images/banner.webp' %}">
+        
+    </div>
+</div>
+
+<!-- ✅ HERO SECTION -->
+<div class="hero">
+    <h1>Vivo Smartphone Store</h1>
+    <p>Latest Vivo phones at the best prices</p>
+
+    <a href="{% url 'products' %}" class="explore-btn">
+        Explore Products
+    </a>
+</div>
+
+{% endblock %}

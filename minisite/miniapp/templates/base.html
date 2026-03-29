@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vivo Store</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h2 class="logo">VIVO</h2>
+
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'products' %}">Products</a></li>
+            <li><a href="{% url 'cart' %}">Cart</a></li>
+            <!-- <li><a href="{% url 'orders' %}">Orders</a></li> -->
+
+            {% if user.is_authenticated %}
+            <!-- ✅ Profile -->
+            <li class="profile-menu">
+                <div class="profile-circle">
+                    {{ user.username|slice:":1"|upper }}
+                </div>
+
+                <ul class="dropdown">
+                    <li class="username">Hi, {{ user.username }}</li>
+                    <li><a href="{% url 'orders' %}">My Orders</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<!-- ✅ Page Content -->
+<div class="main-content">
+    {% block content %}{% endblock %}
+</div>
+<!-- ✅ FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3>Vivo Store</h3>
+            <p>Your trusted destination for latest Vivo smartphones.</p>
+        </div>
+
+        <div class="footer-center">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'cart' %}">Cart</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-right">
+            <h4>Contact</h4>
+            <p>Email: support@vivostore.com</p>
+            <p>Phone: +91 98765 43210</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Vivo Store. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

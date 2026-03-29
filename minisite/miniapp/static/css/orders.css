@@ -1,0 +1,86 @@
+/* Page */
+body {
+    background: #f1f3f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container */
+.orders-container {
+    padding: 20px 30px;
+}
+
+/* Title */
+.orders-container h2 {
+    margin-bottom: 20px;
+}
+
+/* Order card */
+.order-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+/* Left image */
+.order-left img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+/* Details */
+.order-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.order-details h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.order-details p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Date */
+.date {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Status */
+.order-status {
+    text-align: right;
+}
+
+.status {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* Delivered badge */
+.ordered {
+    background: #e6f4ea;
+    color: #388e3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .order-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-status {
+        margin-top: 10px;
+    }
+}
