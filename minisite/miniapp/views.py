@@ -7,7 +7,7 @@ from .forms import RegisterForm, LoginForm
 from django.contrib import messages
 
 def home(request):
-    products = Product.objects.all()[:4]
+    products = Product.objects.all()
     return render(request, 'home.html', {'products': products})
 
 
@@ -36,23 +36,23 @@ def add_to_cart(request, id):
     return redirect('cart')
 
 
-@login_required
+
 @login_required
 def cart(request):
     items = Cart.objects.filter(user=request.user)
 
-    # ✅ Calculate total price
+    # Calculate total price
     total_price = sum(item.product.price * item.quantity for item in items)
 
     if request.method == "POST":
 
-        # ✅ DELETE ITEM
+        #  DELETE ITEM
         if 'delete_item' in request.POST:
             item_id = request.POST.get('delete_item')
             Cart.objects.filter(id=item_id, user=request.user).delete()
             return redirect('cart')
 
-        # ✅ PLACE ORDER
+        # PLACE ORDER
         selected_ids = request.POST.getlist('selected_items')
 
         if selected_ids:
@@ -109,12 +109,12 @@ def register(request):
             password = form.cleaned_data['password']
             confirm_password = request.POST.get('confirm_password')
 
-            # ✅ Check password match
+            #  Check password match
             if password != confirm_password:
                 messages.error(request, "Passwords do not match")
                 return render(request, 'register.html', {'form': form})
 
-            # ✅ Check username/email existence
+            #  Check username/email existence
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Username already taken")
                 return render(request, 'register.html', {'form': form})
@@ -122,7 +122,7 @@ def register(request):
                 messages.error(request, "Email already registered")
                 return render(request, 'register.html', {'form': form})
 
-            # ✅ Create user
+            # Create user
             user = User.objects.create_user(username=username, email=email, password=password)
             messages.success(request, "Registration successful! You can login now.")
             return redirect('login')
