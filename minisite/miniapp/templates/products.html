@@ -5,6 +5,15 @@
 <link rel="stylesheet" href="{% static 'css/products.css' %}">
 
 <h2>All Vivo Phones</h2>
+<form method="GET" action="{% url 'search' %}" class="search-bar">
+    <input 
+        type="text" 
+        name="q" 
+        placeholder="Search Vivo phones..." 
+        value="{{ query|default:'' }}"
+    >
+    <button type="submit">Search</button>
+</form>
 
 <div class="grid">
 {% for p in items %}

@@ -1,0 +1,114 @@
+/* PAGE BACKGROUND */
+.checkout-container {
+    background: #f1f3f6;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* MAIN BOX */
+.checkout-box {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* SECTION */
+.section {
+    margin-bottom: 25px;
+}
+
+.section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* INPUT FIELDS */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
+    background: #fff;
+}
+
+/* FOCUS */
+input:focus, textarea:focus {
+    border-color: #2874f0;
+    outline: none;
+}
+
+/* TEXTAREA */
+textarea {
+    height: 90px;
+    resize: none;
+}
+
+/* RADIO BOX */
+.radio-box {
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background: #fafafa;
+}
+
+/* LABEL FIX */
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+/* RADIO BUTTON FIX */
+.radio-label input[type="radio"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* TEXT */
+.radio-label span {
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* HOVER */
+.radio-box:hover {
+    border-color: #2874f0;
+}
+
+
+
+/* BUTTON */
+.place-btn {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* BUTTON HOVER */
+.place-btn:hover {
+    background: #218838;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .checkout-box {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+<div class="checkout-container">
+
+    <div class="checkout-box">
+
+        
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- ADDRESS -->
+            <div class="section">
+                <h3>Delivery Address</h3>
+
+                <input type="text" name="name" placeholder="Full Name" required>
+
+                <input type="text" name="phone" placeholder="Mobile Number" required>
+
+                <input type="email" name="email" placeholder="Email Address" required>
+
+                <textarea name="address" placeholder="Full Address (House No, Street, City, Pincode)" required></textarea>
+            </div>
+
+            <!-- PAYMENT -->
+            <div class="section">
+    <h3>Payment Method</h3>
+
+    <div class="radio-box">
+        <label class="radio-label">
+            <input type="radio" name="payment_method" value="cod" required>
+            <span>Cash on Delivery</span>
+        </label>
+    </div>
+
+    <div class="radio-box">
+        <label class="radio-label">
+            <input type="radio" name="payment_method" value="stripe">
+            <span>Pay with Card (Stripe)</span>
+        </label>
+    </div>
+</div>
+
+            <button type="submit" class="place-btn">
+                PLACE ORDER
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
